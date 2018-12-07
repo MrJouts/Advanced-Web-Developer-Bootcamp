@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Seccion 11 - Clase 130 - Bind Continued</title>
+</head>
+<body>
+
+	<script>
+		
+		var colt = {
+			firstName: 'Colt',
+			sayHi: function(){
+				setTimeout(function(){
+					console.log('Hi ' + this.firstName);
+				},1000)
+			}
+		} 	
+
+		var colt2 = {
+			firstName: 'Colt',
+			sayHi: function(){
+				setTimeout(function(){
+					console.log('Hi ' + this.firstName);
+				}.bind(this),1000)
+			}
+		} 
+
+	</script>
+	
+</body>
+</html>

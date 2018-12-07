@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Seccion 11 - Clase 128 - Apply</title>
+</head>
+<body>
+
+
+	<script>
+		function sayHi(){
+			return 'Hi ' + this.firstName;
+		}
+
+		var colt = {
+			firstName: 'Colt'
+		}
+
+		var elie = {
+			firstName: 'Elie'
+		}
+
+		function addNumbers(a,b,c,d){
+			return this.firstName + 'just calculated ' + (a+b+c+d);
+		}
+
+		var nums = [2,4,6,7,1];
+
+		var max = Math.max.apply(this, nums);
+
+		function someValues(a,b,c){
+			return a+b+c;
+		}
+
+		var values = [4,1,2];
+
+		console.log(sayHi.call(colt));
+		console.log(sayHi.call(elie));
+		console.log(sayHi.apply(elie));
+		console.log(addNumbers.apply(elie, [2,4,5,7,1]));
+		console.log(addNumbers.call(elie, 2, 4, 5, 7, 1));
+		console.log(max);
+		console.log(someValues(values));
+		console.log(someValues.apply(this,values));
+
+	</script>
+
+</body>
+</html>

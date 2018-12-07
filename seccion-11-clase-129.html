@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Seccion 11 - Clase 129 - Bind</title>
+</head>
+<body>
+
+	<script>
+		
+		function addNumbers(a,b,c,d){
+			return this.firstName + "Just calculated " + (a+b+c+d)
+		} 
+
+		var elie =  {
+			firstName: 'Elie'
+		}
+
+		var elieCalc = addNumbers.bind(elie,1,2,3,4);
+		console.log(elieCalc());
+
+		var elieCalc2 = addNumbers.bind(elie,1,2);
+		console.log(elieCalc2(3,4))
+
+	</script>
+	
+</body>
+</html>

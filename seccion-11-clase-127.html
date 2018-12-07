@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Seccion 11 - Clase 127 - Call</title>
+</head>
+<body>
+
+	<div>Hello</div>
+	<div></div>
+	<div>Hello</div>
+
+	<script>
+
+		var person = {
+			firstName: 'Colt',
+			sayHi: function(){
+				return 'Hi ' + this.firstName;
+			},
+			determineContext: function(){
+				return this === person;
+			},
+			dog: {
+				sayHello: function(){
+					return 'Hello ' + this.firstName;
+				},
+				determineContext: function(){
+					return this === person;
+				}
+			}
+		}
+
+		var colt = {
+			firstName: 'Colt',
+			sayHi: function(){
+				return 'Hi ' + this.firstName;
+			}
+		}
+
+		var elie = {
+			firstName: 'Elie'
+		}
+
+		function sayHi(){
+			return 'Hi ' + this.firstName;
+		}
+
+		var colt2 = {
+			firstName: 'Colt'
+		}
+
+		console.log(person.sayHi());
+		console.log(person.determineContext());
+		console.log(person.dog.sayHello());
+		console.log(person.dog.determineContext());
+
+		console.log(person.dog.sayHello.call(person));
+		console.log(person.dog.determineContext.call(person));
+
+		console.log(colt.sayHi());
+		console.log(colt.sayHi.call(elie));
+
+		console.log(sayHi.call(colt2));
+		console.log(sayHi.call(elie));
+
+
+		var divs = document.getElementsByTagName('div');
+		var divsArray = [].slice.call(divs);
+
+		var fda = divsArray.filter(function(val){
+			return val.innerHTML === 'Hello';
+		})
+
+		console.log(divs);
+		console.log(divsArray);
+		console.log(fda);
+	</script>
+	
+</body>
+</html>

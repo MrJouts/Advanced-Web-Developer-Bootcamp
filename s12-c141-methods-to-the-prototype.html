@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Seccion 12 - Clase 141 - Adding Methods to the Prototype</title>
+</head>
+<body>
+	<script>
+		function Vehicle(make, model, year){
+			this.make = make;
+			this.model = model;
+			this.year = year;
+			this.isRunning = false;
+		}
+
+		Vehicle.prototype.turnOn = function(){
+			this.isRunning = true;
+		}
+
+		Vehicle.prototype.turnOff = function(){
+			this.isRunning = false;
+		}
+
+		Vehicle.prototype.honk = function(){
+			if (this.isRunning) {
+				return 'beep!'
+			}
+		}
+
+		var car1 = new Vehicle('China','Volvo',1920);
+
+		car1.turnOn();
+		console.log(car1.honk());
+		car1.turnOff();
+		console.log(car1.honk());
+
+	</script>
+</body>
+</html>
